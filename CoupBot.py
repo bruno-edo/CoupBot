@@ -8,7 +8,7 @@
 """
 
 
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 
 
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater("")
+    updater = Updater("226711778:AAGWaWA7fgvq6tXjvH5SxwK3FsJsHmGt_MM")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -40,6 +40,9 @@ def main():
     dp.add_handler(CommandHandler("join", c.joinGame))
     dp.add_handler(CommandHandler("game", c.getGame))
     dp.add_handler(CommandHandler("hello", c.hello))
+
+    # on noncommand i.e message - echo the message on Telegram
+    dp.add_handler(MessageHandler([Filters.text], c.checkPlays))
 
     # Start the Bot
     updater.start_polling()

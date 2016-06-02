@@ -10,9 +10,6 @@ class Player:
         self.creator = False
         self.turnOrder = -1 #Will Keep track of the order of players
 
-    def spendCoins(self, ammount):
-        pass
-
     #Reveals cards based on index
     def revealCard(self, cardIndex):
         pass
